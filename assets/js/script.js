@@ -1,228 +1,127 @@
 let submit = document.querySelector('saveBtn');
 
-let slotOne = $('#slot1');
-let slotTwo = $('#slot2');
-let slotThree = $('#slot3');
-let slotFour = $('#slot4');
-let slotFive = $('#slot5');
-let slotSix = $('#slot6');
-let slotSeven = $('#slot7');
-let slotEight = $('#slot8');
-let slotNine = $('#slot9');
+
+let timeSlot1 = $('#slot1');
+let timeSlot2 = $('#slot2');
+let timeSlot3 = $('#slot3');
+let timeSlot4 = $('#slot4');
+let timeSlot5 = $('#slot5');
+let timeSlot6 = $('#slot6');
+let timeSlot7 = $('#slot7');
+let timeSlot8 = $('#slot8');
+let timeSlot9 = $('#slot9');
 let description = $('.description');
 let today = dayjs();
 
 $('#currentDay').text(today.format('dddd, MMMM D'));
 
 if (today.isBefore(`${today.format('YYYY-M-D')} 09:00:00`, 'hour')){
-    slotOne.addClass('future');
-    slotTwo.addClass('future');
-    slotThree.addClass('future');
-    slotFour.addClass('future');
-    slotFive.addClass('future');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 1; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  }
 } else if (today.isSame(`${today.format('YYYY-M-D')} 09:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.addClass('present');
-    slotTwo.addClass('future');
-    slotThree.addClass('future');
-    slotFour.addClass('future');
-    slotFive.addClass('future');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+    timeSlot1.removeClass('future');
+    timeSlot1.addClass('present');
+    for (let i = 2; i < 10; i++) {
+      $(`#slot${[i]}`).addClass('future');
+    };
 } else if (today.isSame(`${today.format('YYYY-M-D')} 10:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.addClass('present');
-    slotThree.addClass('future');
-    slotFour.addClass('future');
-    slotFive.addClass('future');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 3; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 3; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+    timeSlot1.removeClass('present');
+    timeSlot1.addClass('past');
+    timeSlot2.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 11:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.addClass('present');
-    slotFour.addClass('future');
-    slotFive.addClass('future');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 4; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 4; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 3; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot3.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 12:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.addClass('present');
-    slotFive.addClass('future');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 5; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 5; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 4; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot4.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 13:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.addClass('present');
-    slotSix.addClass('future');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 6; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 6; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 5; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot5.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 14:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.removeClass('present');
-    slotFive.addClass('past');
-    slotSix.removeClass('future');
-    slotSix.addClass('present');
-    slotSeven.addClass('future');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 7; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 7; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 6; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot6.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 15:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.removeClass('present');
-    slotFive.addClass('past');
-    slotSix.removeClass('future');
-    slotSix.removeClass('present');
-    slotSix.addClass('past');
-    slotSeven.removeClass('future');
-    slotSeven.addClass('present');
-    slotEight.addClass('future');
-    slotNine.addClass('future');
+  for (let i = 8; i < 10; i++) {
+    $(`#slot${[i]}`).addClass('future');
+  };
+  for (let i = 1; i < 8; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 7; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot7.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 16:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.removeClass('present');
-    slotFive.addClass('past');
-    slotSix.removeClass('future');
-    slotSix.removeClass('present');
-    slotSix.addClass('past');
-    slotSeven.removeClass('future');
-    slotSeven.removeClass('present');
-    slotSeven.addClass('past');
-    slotEight.removeClass('future');
-    slotEight.addClass('present');
-    slotNine.addClass('future');
+  timeSlot9.addClass('future');
+  for (let i = 1; i < 9; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 8; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot8.addClass('present');
 } else if (today.isSame(`${today.format('YYYY-M-D')} 17:00:00`, 'hour')) {
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.removeClass('present');
-    slotFive.addClass('past');
-    slotSix.removeClass('future');
-    slotSix.removeClass('present');
-    slotSix.addClass('past');
-    slotSeven.removeClass('future');
-    slotSeven.removeClass('present');
-    slotSeven.addClass('past');
-    slotEight.removeClass('future');
-    slotEight.removeClass('present');
-    slotEight.addClass('past');
-    slotNine.removeClass('future');
-    slotNine.addClass('present');
+  for (let i = 1; i < 10; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 9; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
+    timeSlot9.addClass('present');
 } else if (today.isAfter(`${today.format('YYYY-M-D')} 17:00:00`, 'hour')){
-    slotOne.removeClass('future');
-    slotOne.removeClass('present');
-    slotOne.addClass('past');
-    slotTwo.removeClass('future');
-    slotTwo.removeClass('present');
-    slotTwo.addClass('past');
-    slotThree.removeClass('future');
-    slotThree.removeClass('present');
-    slotThree.addClass('past');
-    slotFour.removeClass('future');
-    slotFour.removeClass('present');
-    slotFour.addClass('past');
-    slotFive.removeClass('future');
-    slotFive.removeClass('present');
-    slotFive.addClass('past');
-    slotSix.removeClass('future');
-    slotSix.removeClass('present');
-    slotSix.addClass('past');
-    slotSeven.removeClass('future');
-    slotSeven.removeClass('present');
-    slotSeven.addClass('past');
-    slotEight.removeClass('future');
-    slotEight.removeClass('present');
-    slotEight.addClass('past');
-    slotNine.removeClass('future');
-    slotNine.removeClass('present');
-    slotNine.addClass('past');
+  for (let i = 1; i < 10; i++) {
+    $(`#slot${[i]}`).removeClass('future');
+  };
+  for (let i = 1; i < 10; i++) {
+    $(`#slot${[i]}`).removeClass('present');
+    $(`#slot${[i]}`).addClass('past');
+  };
 };
 
 let saveOne = $('#save1');
@@ -234,7 +133,8 @@ let saveSix = $('#save6');
 let saveSeven = $('#save7');
 let saveEight = $('#save8');
 let saveNine = $('#save9');
-let section = document.querySelector('section');
+
+
 
 function handleSaveRowOne() {
     let slot1 = document.querySelector("#slot1").value;
@@ -301,4 +201,14 @@ saveNine.on('click', handleSaveRowNine);
 
 for (let i = 1; i < 10; i++) {
     document.getElementById(`slot${[i]}`).value = `${localStorage.getItem(`slot${[i]}`)}`;
+    if((localStorage.getItem(`slot${[i]}`))=== null){
+      localStorage.setItem(`slot${[i]}`, '')
+      document.getElementById(`slot${[i]}`).value = `${localStorage.getItem(`slot${[i]}`)}`;
+    };
 };
+
+
+/*if((localStorage.getItem(`slot${[i]}`))=== null){
+      localStorage.setItem(`slot${[i]}`, slot[i])
+      console.log(`null${[i]}`)
+}*/
