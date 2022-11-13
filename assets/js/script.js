@@ -1,6 +1,4 @@
-let submit = document.querySelector('saveBtn');
-
-
+// Variable declaration for HTML elements
 let timeSlot1 = $('#slot1');
 let timeSlot2 = $('#slot2');
 let timeSlot3 = $('#slot3');
@@ -10,11 +8,12 @@ let timeSlot6 = $('#slot6');
 let timeSlot7 = $('#slot7');
 let timeSlot8 = $('#slot8');
 let timeSlot9 = $('#slot9');
-let description = $('.description');
 let today = dayjs();
 
+// Setting current day
 $('#currentDay').text(today.format('dddd, MMMM D'));
 
+// if/else statement that adjusts row colors based on time of day
 if (today.isBefore(`${today.format('YYYY-M-D')} 09:00:00`, 'hour')){
   for (let i = 1; i < 10; i++) {
     $(`#slot${[i]}`).addClass('future');
@@ -124,6 +123,7 @@ if (today.isBefore(`${today.format('YYYY-M-D')} 09:00:00`, 'hour')){
   };
 };
 
+// More variable declaration of HTML elements
 let saveOne = $('#save1');
 let saveTwo = $('#save2');
 let saveThree = $('#save3');
@@ -134,8 +134,7 @@ let saveSeven = $('#save7');
 let saveEight = $('#save8');
 let saveNine = $('#save9');
 
-
-
+// Functions that saves a specific rows input data to the localstorage when it's save button is clicked
 function handleSaveRowOne() {
     let slot1 = document.querySelector("#slot1").value;
     localStorage.setItem("slot1", slot1);
@@ -199,16 +198,21 @@ function handleSaveRowNine() {
   
 saveNine.on('click', handleSaveRowNine);
 
+// Loop that displays localstorage data to it's specified loop (or keeps the input blank if no data has been assigned)
 for (let i = 1; i < 10; i++) {
     document.getElementById(`slot${[i]}`).value = `${localStorage.getItem(`slot${[i]}`)}`;
-    if((localStorage.getItem(`slot${[i]}`))=== null){
+    if ((localStorage.getItem(`slot${[i]}`)) === null) {
       localStorage.setItem(`slot${[i]}`, '')
       document.getElementById(`slot${[i]}`).value = `${localStorage.getItem(`slot${[i]}`)}`;
     };
 };
 
+// Functionality for Clear Agenda button
+function clearAgenda() {
+  for (let i = 1; i < 10; i++) {
+    localStorage.setItem(`slot${[i]}`, '');
+    document.getElementById(`slot${[i]}`).value = `${localStorage.getItem(`slot${[i]}`)}`;
+  }
+};
 
-/*if((localStorage.getItem(`slot${[i]}`))=== null){
-      localStorage.setItem(`slot${[i]}`, slot[i])
-      console.log(`null${[i]}`)
-}*/
+$('.clearBtn').on('click', clearAgenda);
