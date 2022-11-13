@@ -13,6 +13,12 @@ textarea {
   padding: 10px;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
 .jumbotron {
   text-align: center;
   background-color: transparent;
@@ -67,6 +73,15 @@ textarea {
   background-color: #06aed5;
   color: white;
   width: 100px;
+}
+
+.clearBtn {
+  border-left: 1px solid black;
+  border-radius: 15px;
+  background-color: #06aed5;
+  color: white;
+  width: 100px;
+  text-align: center;
 }
 
 .saveBtn i:hover {
